@@ -1,14 +1,13 @@
 {{#each this}}
 <li class="menu__item">
-
-    {{!-- galley  card image --}}
     <div class="card">
+        {{!-- gallery image --}}
         <img
         src="{{image}}"
         alt="{{name}}"
         class="card__image
         />"
-    {{!-- gallery card content --}}
+        {{!-- galery card content --}}
         <div class="card__content">
             <h2 class="card__name">{{name}}</h2>
             <p class="card__price">
@@ -17,7 +16,25 @@
                 </i>
                 {{price}}
             </p>
+
+            <p class="card_descr">
+                {{description}}
+            </p>
+        {{!-- gallery tag --}}
+            <ul class="tag-list">
+                {{#each ingredients as |ingredient|}}
+                <li class="tag-list__item">{{ingredient}} </li>
+                {{/each}}
+            </ul>
+        {{!-- gallery button --}}
+            <button class="card_button button">
+                <i class="material-icons button__icon">
+                    shopping_cart
+                </i>
+                в корзину
+            </button>
         </div>
     </div>
 </li>
+
 {{/each}}
