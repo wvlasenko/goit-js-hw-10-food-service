@@ -5,12 +5,8 @@ const switchRef = document.querySelector('input.js-switch-input');
 const savedTheme = localStorage.getItem('theme');
 const savedChecked = localStorage.getItem('checked');
 
+getSavedTheme();
 
-if(savedTheme){
-    bodyRef.classList.add(savedTheme);
-    switchRef.checked = JSON.parse(savedChecked);
-    //  console.log(savedChecked);
-}
 
 switchRef.addEventListener('change', event => {
     if (event.target.checked){
@@ -19,6 +15,8 @@ switchRef.addEventListener('change', event => {
         switchToWhiteTheme();
     }
 });
+
+
 
 function switchToWhiteTheme(){
     bodyRef.classList.add('light-theme');
@@ -36,5 +34,16 @@ function switchToDarkTheme(){
     bodyRef.classList.remove('light-theme');
     localStorage.setItem('theme','dark-theme');
     localStorage.setItem('checked', 'true');
+
+}
+
+function getSavedTheme(){
+    if(savedTheme){
+        bodyRef.classList.add(savedTheme);
+        switchRef.checked = JSON.parse(savedChecked);
+        //  console.log(savedChecked);
+    }else{
+        switchToWhiteTheme();
+    }
 
 }
