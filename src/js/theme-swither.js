@@ -24,14 +24,16 @@ function switchToWhiteTheme(){
     bodyRef.classList.add('light-theme');
     bodyRef.classList.remove('dark-theme');
     localStorage.setItem('theme','light-theme');
-    localStorage.removeItem('checked');
+    // localStorage.removeItem('checked');
+    localStorage.setItem('checked', false);
+
 }
 
 function switchToDarkTheme(){
     bodyRef.classList.add('dark-theme');
     bodyRef.classList.remove('light-theme');
     localStorage.setItem('theme','dark-theme');
-    localStorage.setItem('checked', "true");
+    localStorage.setItem('checked', true);
 }
 
 function getSavedTheme(){
